@@ -6,6 +6,7 @@ const routes = Router()
 
 const classController = new ClassController()
 
+routes.get('/classes', classController.index)
 routes.post('/classes', classController.create)
 
 export default routes
