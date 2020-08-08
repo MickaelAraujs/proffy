@@ -2,6 +2,8 @@ import React from 'react'
 
 import TeacherHeader from '../../components/TeacherHeader'
 import Input from '../../components/Input'
+import Textarea from '../../components/Textarea'
+import Select from '../../components/Select'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
 
@@ -33,14 +35,29 @@ function TeacherForm() {
                         label="Whatsapp"
                         name="whatsapp"
                     />
+
+                    <Textarea name="bio" label="Biografia" />
                 </fieldset>
 
                 <fieldset>
                     <legend>Sobre a aula</legend>
 
-                    <Input
+                    <Select
                         label="Matéria"
                         name="subject"
+                        options={[
+                            { value: 'Matemática', label: 'Matemática' },
+                            { value: 'Física', label: 'Física' },
+                            { value: 'Química', label: 'Química' },
+                            { value: 'História', label: 'História' },
+                            { value: 'Geografia', label: 'Geografia' },
+                            { value: 'Português', label: 'Português' },
+                            { value: 'Inglês', label: 'Inglês' },
+                            { value: 'Artes', label: 'Artes' },
+                            { value: 'Filosofia', label: 'Filosofia' },
+                            { value: 'Sociologia', label: 'Sociologia' },
+                            { value: 'Literatura', label: 'Literatura' },
+                        ]}
                     />
 
                     <Input
