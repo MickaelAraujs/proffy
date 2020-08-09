@@ -22,7 +22,7 @@ const App = () => {
   
   return (
     <Container>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       
       <Landing />
     </Container>

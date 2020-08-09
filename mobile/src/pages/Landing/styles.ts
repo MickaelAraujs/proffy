@@ -18,3 +18,32 @@ export const Title = styled.Text`
 export const TitleBold = styled.Text`
     font-family: Poppins_600SemiBold;
 `
+
+export const ButtonsContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+`
+
+export const Button = styled.TouchableOpacity`
+    width: 48%;
+    height: 150px;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 24px;
+`
+
+export const ButtonText = styled.Text`
+    font-family: Archivo_700Bold;
+    color: #fff;
+    font-size: 20px;
+`
+
+export const TotalConnections = styled.Text`
+    margin-top: 40px;
+    font-family: Poppins_400Regular;
+    color: #d4c2ff;
+    max-width: 140px;
+    font-size: 12px;
+    line-height: 20px;
+`
