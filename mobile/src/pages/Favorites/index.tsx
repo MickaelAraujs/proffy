@@ -1,14 +1,14 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 
 import { StudyContainer } from '../../styles'
 
-const Study = () => {
+const Favorites = () => {
     return (
         <StudyContainer>
-            <Text>Eae Study</Text>
+            <Text>Favorites</Text>
         </StudyContainer>
     )
 }
 
-export default Study
+export default Favorites

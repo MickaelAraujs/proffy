@@ -16,8 +16,8 @@ import heartIcon from '../../assets/images/icons/heart.png'
 const Landing = () => {
     const { navigate } = useNavigation()
 
-    function handleNavigateToGiveClassesPage() {
-        navigate('GiveClasses')
+    function handleNavigateToNextPage(nextPage: string) {
+        navigate(nextPage)
     }
 
     return (
@@ -34,14 +34,17 @@ const Landing = () => {
             </Title>
 
             <ButtonsContainer>
-                <Button style={{ backgroundColor: '#9871f5' }}>
+                <Button
+                    style={{ backgroundColor: '#9871f5' }}
+                    onPress={() => handleNavigateToNextPage('AppTabs')}
+                >
                     <Image source={studyIcon} />
                     <ButtonText>Estudar</ButtonText>
                 </Button>
 
                 <Button
                     style={{ backgroundColor: '#04d361' }}
-                    onPress={handleNavigateToGiveClassesPage}
+                    onPress={() => handleNavigateToNextPage('GiveClasses')}
                 >
                     <Image source={giveClassesIcon} />
                     <ButtonText>Dar aulas</ButtonText>
