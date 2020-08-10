@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image } from 'react-native'
+import { Image, Linking } from 'react-native'
 
 import {
     TeacherItemContainer, Profile, Avatar,
@@ -30,6 +30,10 @@ const TeacherItem: React.FC<TeacherProps> = ({ teacher }) => {
 
     function handleFavoriteChange() {
         setIsFavorite(!isFavorite)
+    }
+
+    function handleLinkToWhatsapp() {
+        Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`)
     }
 
     return (
@@ -72,7 +76,9 @@ const TeacherItem: React.FC<TeacherProps> = ({ teacher }) => {
                         )}    
                     </FavoriteButton>
 
-                    <ContactButton>
+                    <ContactButton
+                        onPress={handleLinkToWhatsapp}
+                    >
                         <Image
                             source={whatsappIcon}
                         />

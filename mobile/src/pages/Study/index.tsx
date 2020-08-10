@@ -23,6 +23,7 @@ const Study = () => {
         const response = await api.get('classes', { params: data })
 
         setFilters(response.data)
+        setIsFiltersVisible(false)
     }
 
     return (
