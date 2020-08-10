@@ -11,7 +11,21 @@ import favoriteIcon from '../../assets/images/icons/heart-outline.png'
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png'
 import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
-const TeacherItem = () => {
+export interface APiTeacherProps {
+    id: number
+    avatar: string
+    name: string
+    bio: string
+    whatsapp: string
+    subject: string
+    cost: number
+}
+
+interface TeacherProps {
+   teacher: APiTeacherProps
+}
+
+const TeacherItem: React.FC<TeacherProps> = ({ teacher }) => {
     const [isFavorite, setIsFavorite] = useState(false)
 
     function handleFavoriteChange() {
@@ -22,27 +36,24 @@ const TeacherItem = () => {
         <TeacherItemContainer>
             <Profile>
                 <Avatar 
-                    source={{ uri: 'https://github.com/MickaelAraujs.png' }}
+                    source={{ uri: teacher.avatar}}
                 />
 
                 <ProfileInfo>
-                    <Name>Mickael Araujo</Name>
+                    <Name>{teacher.name}</Name>
 
-                    <Subject>Física</Subject>
+                    <Subject>{teacher.subject}</Subject>
                 </ProfileInfo>
             </Profile>
 
             <Bio>
-                Entusiasta das melhores tecnologias de química avançada.
-                {'\n \n'}
-                Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências.
-                Mais de 200.000 pessoas já passaram por uma das minhas explosões.
+               {teacher.bio}
             </Bio>
 
             <Footer>
                 <Price>
                     Preço/hora {'   '}
-                    <Value>R$ 100,00</Value>
+                    <Value>R$ {teacher.cost}</Value>
                 </Price>
 
                 <ButtonsContainer>

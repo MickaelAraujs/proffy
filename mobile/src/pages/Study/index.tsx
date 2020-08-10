@@ -5,15 +5,24 @@ import { Feather } from '@expo/vector-icons'
 
 import Header from '../../Components/Header'
 import Filters from '../../Components/Filters'
-import TeacherItem from '../../Components/TeacherItem'
+import TeacherItem, { APiTeacherProps } from '../../Components/TeacherItem'
+
+import api from '../../services/api'
 
 import { StudyContainer } from '../../styles'
 
 const Study = () => {
+    const [filters, setFilters] = useState([])
     const [isFiltersVisible, setIsFiltersVisible] = useState(false)
 
     function handleToggleFiltersVisible() {
         setIsFiltersVisible(!isFiltersVisible)
+    }
+
+    async function handleSearchFilters(data: Object) {
+        const response = await api.get('classes', { params: data })
+
+        setFilters(response.data)
     }
 
     return (
@@ -26,7 +35,7 @@ const Study = () => {
                     </BorderlessButton>
                 )}    
             >
-                {isFiltersVisible && <Filters />}
+                {isFiltersVisible && <Filters submitFilters={handleSearchFilters} />}
             </Header>
 
             <ScrollView
@@ -36,14 +45,12 @@ const Study = () => {
                     paddingBottom: 16
                 }}
                 showsVerticalScrollIndicator={false}
-            >
-                <TeacherItem />
+            >   
 
-                <TeacherItem />
-
-                <TeacherItem />
-
-                <TeacherItem />
+                {filters.map((teacher: APiTeacherProps) => (
+                    <TeacherItem key={teacher.id} teacher={teacher}/>
+                ))}
+                
             </ScrollView>
         </StudyContainer>
     )
