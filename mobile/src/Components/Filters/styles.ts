@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const SearchForm = styled.View`
-    margin-bottom: 8px;
+    margin-bottom: 24px;
 `
 
 export const Label = styled.Text`
@@ -26,4 +26,18 @@ export const InputGroup = styled.View`
 
 export const InputBlock = styled.View`
     width: 48%;
+`
+
+export const SubmitButton = styled.TouchableOpacity`
+    background-color: #04d361;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    border-radius: 8px;
+`
+
+export const SubmitButtonText= styled.Text`
+    color: #fff;
+    font-family: Archivo_700Bold;
+    font-size: 16px;
 `

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+
+import api from '../../services/api'
 
 import {
     LandingContainer, Title, TitleBold,
@@ -15,6 +17,17 @@ import heartIcon from '../../assets/images/icons/heart.png'
 
 const Landing = () => {
     const { navigate } = useNavigation()
+
+    const [totalConnections, setTotalConnections] = useState(0)
+
+    useEffect(() => {
+        api.get('connections')
+        .then(response => {
+            const { total } = response.data
+            setTotalConnections(total)
+        })
+        .catch(err => console.warn('It was not possible to connect to api ' + err))
+    }, [])
 
     function handleNavigateToNextPage(nextPage: string) {
         navigate(nextPage)
@@ -52,7 +65,7 @@ const Landing = () => {
             </ButtonsContainer>
 
             <TotalConnections>
-                Total de 250 conexões já realizadas. {' '}
+                Total de {totalConnections} conexões já realizadas. {' '}
                 <Image source={heartIcon} />
             </TotalConnections>
         </LandingContainer>

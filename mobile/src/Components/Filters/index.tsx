@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
     SearchForm, InputBlock, Label,
-    Input, InputGroup
+    Input, InputGroup, SubmitButton, SubmitButtonText
 } from './styles'
 
 const Filters = () => {
@@ -33,6 +33,10 @@ const Filters = () => {
                     />
                 </InputBlock>
             </InputGroup>
+
+            <SubmitButton>
+                <SubmitButtonText>Filtrar</SubmitButtonText>
+            </SubmitButton>
         </SearchForm>
     )
 }
