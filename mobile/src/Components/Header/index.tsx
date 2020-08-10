@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Image } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
@@ -7,14 +7,16 @@ import backIcon from '../../assets/images/icons/back.png'
 import logoIcon from '../../assets/images/logo.png'
 
 import {
-    HeaderContainer, TopBar, HeaderTitle
+    HeaderContainer, TopBar, HeaderTitle,
+    HeaderTitleContainer
 } from './styles'
 
 interface HeaderProps {
     title: string
+    headerRight?: ReactNode
 }
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC<HeaderProps> = ({ title, children, headerRight }) => {
     const { navigate } = useNavigation()
 
     function handleGoBack() {
@@ -37,7 +39,14 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                 />
             </TopBar>
 
-            <HeaderTitle>{title}</HeaderTitle>
+            <HeaderTitleContainer>
+                <HeaderTitle>{title}</HeaderTitle>
+
+                {headerRight}
+            </HeaderTitleContainer>
+            
+
+            {children}
             
         </HeaderContainer>
     )

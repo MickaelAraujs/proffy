@@ -12,7 +12,7 @@ const Favorites = () => {
             <Header title="Meus proffys favoritos"/>
             
             <ScrollView
-                style={{ marginTop: -60 }}
+                style={{ marginTop: -40 }}
                 contentContainerStyle={{
                     paddingHorizontal: 16,
                     paddingBottom: 16

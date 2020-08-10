@@ -11,6 +11,12 @@ export const TopBar = styled.View`
     justify-content: space-between;
 `
 
+export const HeaderTitleContainer = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
 export const HeaderTitle = styled.Text`
     font-family: Archivo_700Bold;
     color: #fff;
