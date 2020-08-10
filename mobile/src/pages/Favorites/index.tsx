@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import Header from '../../Components/Header'
+import TeacherItem from '../../Components/TeacherItem'
 
 import { StudyContainer } from '../../styles'
 
@@ -9,7 +10,23 @@ const Favorites = () => {
     return (
         <StudyContainer>
             <Header title="Meus proffys favoritos"/>
-            <Text>Favorites</Text>
+            
+            <ScrollView
+                style={{ marginTop: -60 }}
+                contentContainerStyle={{
+                    paddingHorizontal: 16,
+                    paddingBottom: 16
+                }}
+                showsVerticalScrollIndicator={false}
+            >
+                <TeacherItem />
+
+                <TeacherItem />
+
+                <TeacherItem />
+
+                <TeacherItem />
+            </ScrollView>
         </StudyContainer>
     )
 }

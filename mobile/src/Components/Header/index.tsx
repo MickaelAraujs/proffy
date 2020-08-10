@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Image } from 'react-native'
+import { Image } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 import backIcon from '../../assets/images/icons/back.png'
 import logoIcon from '../../assets/images/logo.png'
@@ -14,8 +15,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
+    const { navigate } = useNavigation()
 
-    function handleGoBack() {}
+    function handleGoBack() {
+        navigate('Landing')
+    }
 
     return (
         <HeaderContainer>

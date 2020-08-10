@@ -1,16 +1,32 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import Header from '../../Components/Header'
+import TeacherItem from '../../Components/TeacherItem'
 
 import { StudyContainer } from '../../styles'
-
 
 const Study = () => {
     return (
         <StudyContainer>
             <Header title="Proffys disponíveis"/>
-            <Text>Eae Study</Text>
+
+            <ScrollView
+                style={{ marginTop: -60 }}
+                contentContainerStyle={{
+                    paddingHorizontal: 16,
+                    paddingBottom: 16
+                }}
+                showsVerticalScrollIndicator={false}
+            >
+                <TeacherItem />
+
+                <TeacherItem />
+
+                <TeacherItem />
+
+                <TeacherItem />
+            </ScrollView>
         </StudyContainer>
     )
 }
